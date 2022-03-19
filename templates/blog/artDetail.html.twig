@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Blog : page detail-article
+{% endblock %}
+
+{% block body %}
+	<h1>Détail Article
+	</h1>
+	<div class="container">
+		<h3>{{article.title}}</h3>
+		<p>{{article.content}}</p>
+	</div>
+{% endblock %}

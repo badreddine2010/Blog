@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SymBlog : Ajouter un article
+{% endblock %}
+
+{% block body %}
+	{# {{ form(formArticle) }} #}
+	{% if mode %}
+		<h1>Modifier un article</h1>
+	{% else %}
+		<h1>Créer un article</h1>
+	{% endif %}
+	<div class="container">
+		{{form_start(formArticle)}}
+		{{form_row(formArticle.title,{'attr':{'placeholder':"Entrer le titre de l'article"}})}}
+		{{form_row(formArticle.content,{'attr':{'placeholder':"Contenu de l'article"}})}}
+		{% if mode %}
+			<button class="btn btn-success" type="submit">Mettre à jour l'article</button>
+		{% else %}
+			<button class="btn btn-success" type="submit">Créer l'article</button>
+		{% endif %}
+		{{form_end(formArticle)}}
+	</div>
+{% endblock %}

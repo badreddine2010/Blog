@@ -9,6 +9,7 @@ body {
     padding: 1%;
     border-radius: 10px;
 }
-h3,h1{
+h3,h1,.titre{
     text-align: center;
+    color: red;
 }

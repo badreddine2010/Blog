@@ -10,5 +10,7 @@
 	<div class="container">
 		<h3>{{article.title}}</h3>
 		<p>{{article.content}}</p>
+		<a href="{{path('art-edit',{'id':article.id})}}" class="btn btn-success">Modifier l'article</a>
+		<a href="{{path('art-delete',{'id':article.id})}}" class="btn btn-danger">Supprimer l'article</a>
 	</div>
 {% endblock %}

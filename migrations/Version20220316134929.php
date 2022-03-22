@@ -28,6 +28,7 @@ final class Version20220316134929 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE article');
+        $this->addSql('ALTER TABLE article AUTO_INCREMENT=0');
         $this->addSql('DROP TABLE messenger_messages');
     }
 }

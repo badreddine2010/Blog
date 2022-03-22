@@ -11,6 +11,7 @@
 	{% for art in articles %}
 		<div class="container">
 			<h3>{{ art.title }}</h3>
+			<h2>{{art.category.title}}</h2>
 			<p>{{ art.content }}</p>
 			<a class="btn btn-primary" href="{{path('art-detail',{'id':art.id})}}">Détails</a>
 		</div>

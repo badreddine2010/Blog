@@ -5,12 +5,29 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Détail Article
-	</h1>
+	<h1>Détail Article</h1>
+
 	<div class="container">
 		<h3>{{article.title}}</h3>
-		<p>{{article.content}}</p>
+		<h2>{{article.category.title}}</h2>
 		<a href="{{path('art-edit',{'id':article.id})}}" class="btn btn-success">Modifier l'article</a>
 		<a href="{{path('art-delete',{'id':article.id})}}" class="btn btn-danger">Supprimer l'article</a>
+		<a href="{{path('art-addCom',{'id':article.id})}}" class="btn btn-primary">Ajouter un commentaire</a>
+		
+		<hr>
+
+		<h3>Commentaires</h3>
+		<div class="comments">
+			{% for comment in comments %}
+				<div class="row">
+					<div class="col-2">
+						{{comment.auteur}}
+					</div>
+					<div class="col">
+						{{comment.remark}}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}

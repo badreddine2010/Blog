@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SymBlog : Ajouter un article
+{% endblock %}
+
+{% block body %}
+	{# {{ form(formArticle) }} #}
+	<h1>Créer un article</h1>
+
+	<div class="container">
+		{{form_start(formComment)}}
+		{{form_row(formComment.auteur,{'label':'Auteur','attr':{'placeholder':"Entrer votre nom"}})}}
+		{{form_row(formComment.remark,{'label':'Votre commentaire','attr':{'placeholder':"Contenu du commentaire"}})}}
+		<button type="submit" class="btn btn-primary">Envoyer</button>
+		{{form_end(formComment)}}
+	</div>
+{% endblock %}

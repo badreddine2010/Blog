@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,6 +89,33 @@ class BlogController extends AbstractController
         // dd($article); //dump and die
         return $this->render('blog/artDetail.html.twig', [
             'article' => $article,
+            'comments' => $article->getComments(),
+        ]);
+    }
+    /**
+     * @Route("/comment/add/{id}",name="art-addCom")
+     */
+    public function addComment(
+        Article $article,
+        EntityManagerInterface $em,
+        Request $req
+    ) {
+        $comment = new Comment();
+        if ($article) {
+            //Init articleId du commentaire
+            $comment->setRelation($article);
+        }
+        $formComment = $this->createForm(CommentType::class, $comment);
+        $formComment->handleRequest($req);
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+            $em->persist($comment);
+            $em->flush();
+            return $this->redirectToRoute('art-detail', [
+                'id' => $article->getId(),
+            ]);
+        }
+        return $this->render('blog/commentForm.html.twig', [
+            'formComment' => $formComment->createView(),
         ]);
     }
 }

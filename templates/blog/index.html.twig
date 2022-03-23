@@ -8,6 +8,12 @@
 	<h1>
 		Bienvenue sur ma liste d'articles
 	</h1>
+		{% if app.user %}
+	<h4>{{app.user.username}}</h4>
+		{% else %}	
+	<h4>Anonyme</h4>
+		{% endif %}
+	
 	{% for art in articles %}
 		<div class="container">
 			<h3>{{ art.title }}</h3>

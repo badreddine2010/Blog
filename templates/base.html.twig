@@ -40,15 +40,18 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('blog-contact') }}">A propos</a>
 						</li>
-						{% if app.user %}
-							<li class="nav-item">
+							{% if app.user %}
+						<li class="nav-item">
 								<a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-							</li>
-						{% else %}
-							<li class="nav-item">
+						</li>
+							{% else %}
+              <li class="nav-item">
 								<a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
-							</li>
-						{% endif %}
+                </li>
+                <li class="nav-item">
+								<a class="nav-link" href="{{ path('app_register') }}">Créer mon compte</a>
+                </li>
+							{% endif %}
 					</ul>
 				</div>
 			</div>
